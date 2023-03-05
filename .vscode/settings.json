@@ -1,0 +1,33 @@
+{
+    "[python]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4,
+        "editor.rulers": [
+            119
+        ],
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true,
+            "source.fixAll": true
+        }
+    },
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python3",
+    "python.envFile": "${workspaceFolder}/.venv",
+    "python.languageServer": "Pylance",
+    "python.formatting.provider": "yapf",
+    "python.formatting.yapfPath": "${workspaceFolder}/.venv/bin/yapf",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintPath": "${workspaceFolder}/.venv/bin/pylint",
+    "python.linting.mypyEnabled": true,
+    "python.linting.mypyArgs": [
+        "--config-file ${workspaceFolder}/pyproject.toml"
+    ],
+    "python.testing.pytestEnabled": true,
+    "python.testing.pytestArgs": [
+        "."
+    ],
+    "[toml]": {
+        "editor.defaultFormatter": "tamasfe.even-better-toml"
+    },
+    "python.linting.mypyPath": "${workspaceFolder}/.venv/bin/mypy"
+}
