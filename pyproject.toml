@@ -49,6 +49,7 @@ typer = { extras = ["all"], version = "^0.7.0" }
 rich = "<13.0.0"                                 # limited version as 13.0.0 because of typer
 revchatgpt = "^3.1.1"
 pydantic = "^1.10.5"
+yt-dlp = "^2023.3.4"
 
 [tool.poetry.scripts]
 ygka = "ygka:main"
