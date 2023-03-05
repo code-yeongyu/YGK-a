@@ -45,6 +45,7 @@ addopts = ["--cov=ygka"]
 [tool.poetry.dependencies]
 python = "^3.9"
 poetry = "^1.4.0"
+typer = {extras = ["all"], version = "^0.7.0"}
 
 [tool.poetry.scripts]
 ygka = "ygka:main"
