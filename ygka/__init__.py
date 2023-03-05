@@ -1,2 +1,5 @@
+from .cli import cli_app
+
+
 def main():
-    print('Hello, World!')
+    cli_app()
