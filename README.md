@@ -1,74 +1,63 @@
-# Python Poetry Template
+# YGKA 🤖
 
-This template is designed to make it easy to set up a Python project that is well-structured, organized, and easy to maintain. It comes pre-configured with several tools that will help you develop your project more efficiently, including:
+YGKA is an advanced ChatGPT client for shell that acts as Your Genius Knowledgeable Assistant. YGKA supports Unix/Linux pipelines and requires no setting up of tokens or API keys. Furthermore, if you want to use an OpenAI API key, you can easily configure it.
 
-- Visual Studio Code integration: with the `RunOnSave`, `even-better-toml` and `ruff` extensions installed, you can format, lint, and type-check your code automatically every time you save a file.
-- Type checking: this template is configured to use `mypy` and `pyright` to automatically infer types when possible, without imposing strict typing requirements on your code.
-- Linting: `ruff`, an extremely fast Python linter, written in Rust is configured well to help you catch and fix code style issues.
-- Formatting: `yapf`, `ruff`, and `unify` are configured to help you keep your code clean and well-organized.
-- Testing: `pytest` is configured to make it easy to run tests, and `pytest-cov` is configured to help you measure code coverage.
-- Dependency management: `poetry` is configured to help you manage your project's dependencies.
-- Toolkits: `invoke` is configured to provide a range of useful tasks, such as running your code, running tests, formatting your code, and checking your code style and types. These tasks are fully configurable in the [tasks.py](tasks.py) file.
+## Key Features 💡
 
-## Installation
+- Supports Unix/Linux pipelines
+- Ready to use without setting up tokens or API keys
 
-To install this template, simply follow these steps:
+## Prerequisites 📚
 
-```sh
-git clone git@github.com:code-yeongyu/Python-Poetry-Template.git
-cd Python-Poetry-Template
-poetry install
-code --install-extension emeraldwalk.RunOnSave
-code --install-extension tamasfe.even-better-toml
-code --install-extension charliermarsh.ruff
-```
+- Python 3.9+
+- ChatGPT Account (or OpenAI Account)
 
-## Usage
+## Getting Started 🚀
 
-To use this template, you can follow these steps:
-
-### Open Shell
-
-To open a shell in the project directory, use the following command:
+To begin using YGKA, install it with pip:
 
 ```sh
-poetry shell
+pip install ygk-a
 ```
 
-### Name your project
+Once you've installed YGKA, you can start using it right away. To execute a command, use the following syntax:
 
 ```sh
-invoke rename-project <your-project-name>
+ygka "<your command here>"
 ```
 
-### Run Code
-
-To run your code, use the following command:
+For example, to ask "hello?" using YGKA, you can use the following command:
 
 ```sh
-poetry run invoke run
+ygka "hello?"
 ```
 
-### Run Tests
-
-To run your tests, use the following command:
+You can also use YGKA with Unix pipeline. For example, to ask "what is this file?" while viewing the contents of a text file, you can use the following command:
 
 ```sh
-poetry run invoke test
+cat textfile.txt | ygka "what is this file?"
 ```
 
-### Run Formatters
+## Advanced Settings 🛠
 
-To run the code formatters, use the following command:
+By default, YGKA is configured to use either the official_chatgpt or reverse_engineered_chatgpt language model. To change the language model, modify the `~/.ygka_config.json` file as follows:
 
-```sh
-poetry run invoke format_code
+```json
+{
+    ...
+    "language_model": <language model of your preference>, //"official_chatgpt" or "reverse_engineered_chatgpt"
+    "openai_api_key": <your OpenAI API key>
+}
 ```
 
-### Run Checking Code Style & Type hint
+Here, you can specify the language model of your preference and add your OpenAI API key.
 
-To check your code style and type hints, use the following command:
+## Inspired By 🎨
 
-```sh
-poetry run invoke check
-```
+- YeonGyu Kim: My name. The project is named after me.
+- [AiShell](https://github.com/code-yeongyu/AiShell): A Natural Language Shell Powered by ChatGPT, is a brother project of YGKA that provides a similar functionality.
+- [loz](https://github.com/joone/loz): A nodejs version of a GPT3 client that does similar things as YGKA.
+
+## Contributions 💬
+
+Feel free to contribute to YGKA by adding more functionality or fixing bugs.
