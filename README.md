@@ -6,6 +6,8 @@
 
 YGKA is an advanced ChatGPT client for shell that acts as Your Genius Knowledgeable Assistant. YGKA supports Unix/Linux pipelines and requires no setting up of tokens or API keys. Furthermore, if you want to use an OpenAI API key, you can easily configure it.
 
+![demo](https://raw.githubusercontent.com/code-yeongyu/YGK-a/master/images/factorial.png)
+
 ## Key Features 💡
 
 - Supports Unix/Linux pipelines
@@ -24,7 +26,11 @@ To begin using YGKA, install it with pip:
 pip install ygka
 ```
 
-Once you've installed YGKA, you can start using it right away. To execute a command, use the following syntax:
+Once you've installed YGKA, you can start using it right away, like following.
+
+![demo](https://raw.githubusercontent.com/code-yeongyu/YGK-a/master/images/first.png)
+
+To execute a command, use the following syntax:
 
 ```sh
 ygka "<your command here>"
