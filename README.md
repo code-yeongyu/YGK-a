@@ -50,12 +50,16 @@ cat textfile.txt | ygka "what is this file?"
 
 ## Advanced Settings 🛠
 
-By default, YGKA is configured to use either the official_chatgpt or reverse_engineered_chatgpt language model. To change the language model, modify the `~/.ygka_config.json` file as follows:
+By default, `YGKA` is configured to use the reverse-engineered ChatGPT client and retrieve login information from your browser, so you don't need to configure anything to use `YGKA`. However, for those who want to use different models with an OpenAI API Key, you can configure it as follows:
+
+1. Create an account on OpenAI.
+1. Go to <https://platform.openai.com/account/api-keys> and copy your API key.
+1. Modify or create the `~/.ygka_config.json` file as follows:
 
 ```json
 {
     ...
-    "language_model": <language model of your preference>, //"official_chatgpt" or "reverse_engineered_chatgpt"
+    "language_model": <language model of your preference>, //"official_chatgpt"
     "openai_api_key": <your OpenAI API key>
 }
 ```
