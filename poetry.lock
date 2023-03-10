@@ -1848,14 +1848,14 @@ requests = ">=2.0.1,<3.0.0"
 
 [[package]]
 name = "revchatgpt"
-version = "3.2.0"
+version = "3.3.1"
 description = "ChatGPT is a reverse engineering of OpenAI's ChatGPT API"
 category = "main"
 optional = false
 python-versions = "*"
 files = [
-    {file = "revChatGPT-3.2.0-py3-none-any.whl", hash = "sha256:8410384f3d9407a0ad29f934a05c574eadba27f87194ff4819649fc1b4195f74"},
-    {file = "revChatGPT-3.2.0.tar.gz", hash = "sha256:501d47c2ddceb6da288f2306d6e7a5a7f9a9c5cec9fce224715f312483924f0e"},
+    {file = "revChatGPT-3.3.1-py3-none-any.whl", hash = "sha256:3ca416090f443f055d1bd51d0d6258df6759af03d5025be6ed5a2d7b428a7452"},
+    {file = "revChatGPT-3.3.1.tar.gz", hash = "sha256:0677174ed0bd460d61d8bd70d46f28535973c1db71289df37f1be1a19c4e8269"},
 ]
 
 [package.dependencies]
