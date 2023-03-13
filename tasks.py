@@ -26,7 +26,7 @@ def run(context: Context):
 
 @task
 def test(context: Context):
-    context.run('pytest . --cov=. --cov-report=xml', pty=True)
+    context.run('pytest . -s --cov=. --cov-report=xml', pty=True)
 
 
 @task
