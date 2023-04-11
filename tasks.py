@@ -32,7 +32,6 @@ def test(context: Context):
 @task
 def format_code(context: Context, verbose: bool = False):
     commands = [
-        f'pautoflake {get_project_path()}',
         f'ruff --fix {get_project_path()}',
         f'yapf --in-place --recursive --parallel {get_project_path()}',
     ]
