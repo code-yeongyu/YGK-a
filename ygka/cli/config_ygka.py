@@ -2,15 +2,14 @@ import sys
 
 import rich
 import typer
-from yt_dlp.cookies import SUPPORTED_BROWSERS
+from revChatGPTAuth import SupportedBrowser
 
-from ygka.adapters.openai_cookie_adapter import OpenAICookieAdapter
-from ygka.models import RevChatGPTChatbotConfigModel
 from ygka.models.ygka_config_model import YGKAConfigModel
 from ygka.utils import YGKAConfigManager
 
 
 def config_ygka():
+    SUPPORTED_BROWSERS = [browser.value for browser in SupportedBrowser]
     rich.print('''
 Hi! 🙌 I am [bold blue]YGKA[/bold blue]!
 [yellow][blue bold underline]Y[/blue bold underline]our
@@ -33,13 +32,7 @@ We support the following browsers: [{SUPPORTED_BROWSERS}]'''[1:])
         rich.print(f'Browser {browser_name} is not supported. Supported browsers are: {SUPPORTED_BROWSERS}')
         sys.exit(1)
 
-    adapter = OpenAICookieAdapter(browser_name)
-    session_token = adapter.get_openai_session_token()
-    if not session_token:
-        rich.print('Failed to get session token. 😓 Can you check if you are logged in to https://chat.openai.com?')
-        sys.exit(1)
-
-    config_manager = save_config(session_token)
+    config_manager = save_config(browser_name)
 
     rich.print(f'''
 [green bold]Excellent![/green bold] You are now ready to use [bold blue]YGKA[/bold blue] 🚀
@@ -52,19 +45,15 @@ Enjoy your AI powered terminal assistant! 🎉
     return config_manager
 
 
-def save_config(session_token: str):
+def save_config(browser_name: str):
+    config_manager: YGKAConfigManager = YGKAConfigManager()
+
     is_config_file_available = YGKAConfigManager.is_config_file_available(YGKAConfigManager.DEFAULT_CONFIG_PATH)
     if is_config_file_available:
         config_manager = YGKAConfigManager(load_config=True)
-        is_chatgpt_config_available = config_manager.config_model.chatgpt_config is not None
-        if is_chatgpt_config_available:
-            assert config_manager.config_model.chatgpt_config  # for type hinting
-            config_manager.config_model.chatgpt_config.session_token = session_token
-        else:
-            config_manager.config_model.chatgpt_config = RevChatGPTChatbotConfigModel(session_token=session_token)
+        config_manager.config_model.browser_name = browser_name
     else:
-        chatgpt_config = RevChatGPTChatbotConfigModel(session_token=session_token)
-        YGKA_config = YGKAConfigModel(chatgpt_config=chatgpt_config)
+        YGKA_config = YGKAConfigModel(browser_name=browser_name)
         config_manager = YGKAConfigManager(config_model=YGKA_config)
 
     config_manager.save_config()
