@@ -1,7 +1,5 @@
 from typing import Optional
 
-import rich
-import typer
 from rich.console import Console
 
 from ygka.models import LanguageModel
@@ -23,17 +21,10 @@ def ygka_command(query: str, language_model: Optional[LanguageModel] = None):
     query_client = QueryClientFactory(config_model=config_manager.config_model).create()
 
     console = Console()
-    try:
-        with console.status('''[green] YGKA is waiting for ChatGPT's answer ...[/green]'''):
-            prompt = _generate_prompt(stdin, query)
-            response = query_client.query(prompt)
-            console.print(response)
-    except KeyError:
-        rich.print('It looks like the `session_token` is expired. Please reconfigure YGKA.')
-        typer.confirm('Reconfigure YGKA?', abort=True)
-        config_ygka()
-        ygka_command(query=query, language_model=language_model)
-        typer.Exit()
+    with console.status('''[green] YGKA is waiting for ChatGPT's answer ...[/green]'''):
+        prompt = _generate_prompt(stdin, query)
+        response = query_client.query(prompt)
+        console.print(response)
 
 
 def _get_config_manager():
