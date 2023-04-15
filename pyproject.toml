@@ -36,7 +36,7 @@ allow_split_before_dict_value = false
 
 [tool.ruff]
 line-length = 119
-select = ["PLE", "PLR", "PLW", "E", "W", "F", "I", "Q"]
+select = ["PLE", "PLW", "E", "W", "F", "I", "Q"]
 
 [tool.pytest.ini_options]
 addopts = ["--cov=ygka"]
